@@ -11,16 +11,42 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.getAllPosts",
+        "onCommand:extension.getMyPosts"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "extension.getAllPosts",
+                "title": "esa: Open From All Latest Post"
+            },
+            {
+                "command": "extension.getMyPosts",
+                "title": "esa: Open From My Post"
             }
         ]
+    },
+    "configuration": {
+        "title": "Esa Configuration",
+        "type": "object",
+        "properties": {
+            "esa.token": {
+                "type": "string",
+                "default": "",
+                "description": "Copy your Personal Access Token from the website. (esa: https://[team].esa.io/user/tokens/new)"
+            },
+            "esa.teamName": {
+                "type": "string",
+                "default": "",
+                "description": "Copy your Team Name."
+            },
+            "esa.myName": {
+                "type": "string",
+                "default": "",
+                "description": "Copy your Screen Name."
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
@@ -34,5 +60,9 @@
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
         "@types/mocha": "^2.2.32"
+    },
+    "dependencies": {
+        "request": "^2.81.0",
+        "request-promise-native": "^1.0.4"
     }
 }
