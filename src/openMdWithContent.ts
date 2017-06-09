@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-export default function openMdWithContent(content) {
+export default function openMdWithContent(content: string) {
     return vscode.workspace.openTextDocument({language: 'markdown'}).then(doc => {
       return vscode.window.showTextDocument(doc);
     }).then(editor => {

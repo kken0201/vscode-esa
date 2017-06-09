@@ -2,8 +2,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import getAllPosts from './getPosts';
-import getMyPosts from './getMyPosts';
+import openPost from './openPost';
+import createPost from './createPost';
 
 const config = vscode.workspace.getConfiguration('esa');
 
@@ -18,16 +18,15 @@ export function activate(context: vscode.ExtensionContext) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    // let getPostsCmd = vscode.commands.registerCommand('extension.getPosts', getPosts);
-    let getPostsCMD =  vscode.commands.registerCommand('extension.getAllPosts', () => {
-        getAllPosts();
+    let openPostCMD =  vscode.commands.registerCommand('extension.openPost', () => {
+        openPost();
     });
-    let getMyPostsCMD =  vscode.commands.registerCommand('extension.getMyPosts', () => {
-        getMyPosts();
+    let createPostCMD =  vscode.commands.registerCommand('extension.createPost', () => {
+        createPost();
     });
 
-    context.subscriptions.push(getPostsCMD);
-    context.subscriptions.push(getMyPostsCMD);
+    context.subscriptions.push(openPostCMD);
+    context.subscriptions.push(createPostCMD);
 }
 
 // this method is called when your extension is deactivated

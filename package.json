@@ -11,19 +11,19 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.getAllPosts",
-        "onCommand:extension.getMyPosts"
+        "onCommand:extension.openPost",
+        "onCommand:extension.createPost"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.getAllPosts",
-                "title": "esa: Open From All Latest Post"
+                "command": "extension.openPost",
+                "title": "esa: Open Exists Post"
             },
             {
-                "command": "extension.getMyPosts",
-                "title": "esa: Open From My Post"
+                "command": "extension.createPost",
+                "title": "esa: Create New Post"
             }
         ]
     },

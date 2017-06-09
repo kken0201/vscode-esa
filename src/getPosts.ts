@@ -10,27 +10,11 @@ export default function getPosts(query: string = '') {
         vscode.window.showWarningMessage("Please set the token & API url first");
         return;
     }
-
-    const esaClient = new EsaService(config.token, config.teamName);
-
-    esaClient.getPostList(query).then((json) => {
-        const posts = json.posts.map((post) => {
-            return {
-                description: post.name,
-                detail: post.created_at,
-                label: post.number,
-                body: post.body_md
-            }
-        });
-        return vscode.window.showQuickPick(posts);
-    }).then(selected => {
-        if (!selected) {
-            throw "";
-        }
-        return selected;
-    }).then(selected => {
-        openMdWithContent(selected.body);
-    })
-    
     vscode.window.setStatusBarMessage("Requesting posts .....", 2);
+
+    const esaClient = new EsaService(config.token, config.teamName, config.myName);
+
+    return esaClient.getPosts(query)
+        .then(res => res)
+        .catch(err => console.log(err));
 }
