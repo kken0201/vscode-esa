@@ -1,15 +1,25 @@
 {
     "name": "vscode-esa",
     "displayName": "vscode-esa",
-    "description": "esa拡張です",
+    "description": "Markdown support for Esa.",
     "version": "0.0.1",
     "publisher": "kken0201",
+    "icon": "media/icon.svg",
+    "author": {
+        "name": "kken0201",
+        "url": "http://kken.io/blog",
+        "email": "kken.com@gmail.com"
+    },
     "engines": {
         "vscode": "^1.12.0"
     },
     "categories": [
         "Other"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kken0201/vscode-esa.git"
+    },
     "activationEvents": [
         "onCommand:extension.openPost",
         "onCommand:extension.createPost",
@@ -27,7 +37,7 @@
                 "title": "esa: Create New Post"
             },
             {
-               "command": "extension.updatePost",
+                "command": "extension.updatePost",
                 "title": "esa: Update Post",
                 "icon": {
                     "light": "./media/icon.svg",
