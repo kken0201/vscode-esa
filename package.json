@@ -2,7 +2,7 @@
     "name": "vscode-esa",
     "displayName": "vscode-esa",
     "description": "Markdown support for Esa.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "kken0201",
     "icon": "media/icon.svg",
     "author": {
