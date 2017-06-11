@@ -2,9 +2,9 @@
     "name": "vscode-esa",
     "displayName": "vscode-esa",
     "description": "Markdown support for Esa.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "kken0201",
-    "icon": "media/icon.svg",
+    "icon": "media/icon.png",
     "author": {
         "name": "kken0201",
         "url": "http://kken.io/blog",
