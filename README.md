@@ -6,15 +6,15 @@ This is the README for your extension "vscode-esa".
 
 - Post a new post
 
-\!\[Post a new post\]\(media/create.gif\)
+![Post a new post](media/create.gif)
 
 - Edit an existing article
 
-\!\[Edit an existing article\]\(media/update.gif\)
+![Edit an existing article](media/update.gif)
 
 - Open an existing article
 
-\!\[Open an existing article\]\(media/get.gif\)
+![Open an existing article](media/get.gif)
 
 ## Extension Settings
 
