@@ -13,6 +13,7 @@ export default function openPost() {
     'Open From My Posts',
     'Open From Latest Posts',
   ];
+  let postStore = [];
   vscode.window.showQuickPick(options).then(result => {
     switch (result) {
       case 'Open From Latest Posts':
@@ -22,21 +23,25 @@ export default function openPost() {
         return getPosts(`@${config.myName}`);
     }
   }).then(json => {
-    const posts = json.posts.map((post) => {
+    postStore = json.posts;
+    const posts: vscode.QuickPickItem[] = json.posts.map((post) => {
       return {
         description: post.name,
         detail: post.created_at,
-        label: post.number,
-        data: post as Post
+        label: post.number
       }
     });
     return vscode.window.showQuickPick(posts);
-  }).then(selected => {
+  }).then((selected: vscode.QuickPickItem) => {
     if (!selected) {
         throw '';
     }
     return selected;
-  }).then(selected => {
-    openMdWithContent(addMetaData(selected.data));
+  }).then((selected: vscode.QuickPickItem) => {
+    postStore.forEach(post => {
+      if (post.number === selected.label) {
+        openMdWithContent(addMetaData(post));
+      }
+    });
   });
 }
