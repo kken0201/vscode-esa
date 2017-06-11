@@ -1,6 +1,6 @@
-# vscode-esa README
+# vscode-esa
 
-This is the README for your extension "vscode-esa".
+Extension for Visual Studio Code to create, open and edit Esa posts.
 
 ## Features
 
@@ -8,11 +8,11 @@ This is the README for your extension "vscode-esa".
 
 ![Post a new post](media/create.gif)
 
-- Edit an existing article
+- Edit an article
 
 ![Edit an existing article](media/update.gif)
 
-- Open an existing article
+- Open an article
 
 ![Open an existing article](media/get.gif)
 
