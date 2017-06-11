@@ -1,19 +1,24 @@
+'use strict';
+
 import * as vscode from 'vscode';
 import openMdWithContent from './openMdWithContent';
+import { addMetaData, exactMetaData } from './postConverter';
 import getPosts from './getPosts';
+import { Post } from './interfaces';
 
 const config = vscode.workspace.getConfiguration('esa');
 
 export default function openPost() {
   const options = [
-    "Open From My Posts",
-    "Open From Latest Posts",
+    'Open From My Posts',
+    'Open From Latest Posts',
   ];
   vscode.window.showQuickPick(options).then(result => {
     switch (result) {
       case 'Open From Latest Posts':
         return getPosts();
       case 'Open From My Posts':
+        if (config.myName === '') throw '';
         return getPosts(`@${config.myName}`);
     }
   }).then(json => {
@@ -22,16 +27,16 @@ export default function openPost() {
         description: post.name,
         detail: post.created_at,
         label: post.number,
-        body: post.body_md
+        data: post as Post
       }
     });
     return vscode.window.showQuickPick(posts);
   }).then(selected => {
     if (!selected) {
-        throw "";
+        throw '';
     }
     return selected;
   }).then(selected => {
-    openMdWithContent(selected.body);
+    openMdWithContent(addMetaData(selected.data));
   });
 }

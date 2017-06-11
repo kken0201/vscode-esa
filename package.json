@@ -12,7 +12,8 @@
     ],
     "activationEvents": [
         "onCommand:extension.openPost",
-        "onCommand:extension.createPost"
+        "onCommand:extension.createPost",
+        "onCommand:extension.updatePost"
     ],
     "main": "./out/src/extension",
     "contributes": {
@@ -24,8 +25,36 @@
             {
                 "command": "extension.createPost",
                 "title": "esa: Create New Post"
+            },
+            {
+               "command": "extension.updatePost",
+                "title": "esa: Update Post",
+                "icon": {
+                    "light": "./media/icon.svg",
+                    "dark": "./media/icon.svg"
+                }
             }
-        ]
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "when": "resourceLangId == markdown",
+                    "command": "markdown.showPreview",
+                    "alt": "markdown.showPreviewToSide",
+                    "group": "navigation"
+                },
+                {
+                    "when": "resourceLangId == markdown",
+                    "command": "extension.updatePost",
+                    "group": "navigation"
+                },
+                {
+                    "when": "resourceScheme == markdown",
+                    "command": "extension.updatePost",
+                    "group": "navigation"
+                }
+            ]
+        }
     },
     "configuration": {
         "title": "Esa Configuration",
