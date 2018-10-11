@@ -64,26 +64,26 @@
                     "group": "navigation"
                 }
             ]
-        }
-    },
-    "configuration": {
-        "title": "Esa Configuration",
-        "type": "object",
-        "properties": {
-            "esa.token": {
-                "type": "string",
-                "default": "",
-                "description": "Copy your Personal Access Token from the website. (esa: https://[team].esa.io/user/tokens/new)"
-            },
-            "esa.teamName": {
-                "type": "string",
-                "default": "",
-                "description": "Copy your Team Name."
-            },
-            "esa.myName": {
-                "type": "string",
-                "default": "",
-                "description": "Copy your Screen Name."
+        },
+        "configuration": {
+            "title": "Esa Configuration",
+            "type": "object",
+            "properties": {
+                "esa.token": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Copy your Personal Access Token from the website. (esa: https://[team].esa.io/user/tokens/new)"
+                },
+                "esa.teamName": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Copy your Team Name."
+                },
+                "esa.myName": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Copy your Screen Name."
+                }
             }
         }
     },
