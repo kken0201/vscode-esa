@@ -23,12 +23,15 @@ export default function openPost() {
         return getPosts(`@${config.myName}`);
     }
   }).then(json => {
+    if(!json){
+      throw '';
+    }
     postStore = json.posts;
     const posts: vscode.QuickPickItem[] = json.posts.map((post) => {
       return {
         description: post.name,
         detail: post.created_at,
-        label: post.number
+        label: post.number.toString()
       }
     });
     return vscode.window.showQuickPick(posts);
@@ -39,7 +42,7 @@ export default function openPost() {
     return selected;
   }).then((selected: vscode.QuickPickItem) => {
     postStore.forEach(post => {
-      if (post.number === selected.label) {
+      if (post.number.toString() === selected.label) {
         openMdWithContent(addMetaData(post));
       }
     });
