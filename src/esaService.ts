@@ -18,7 +18,7 @@ export default class EsaService {
     vscode.window.showInformationMessage(msg);
   }
 
-  getPosts(query: string = '') {
+  getPosts(query: string = '') : Promise<void | {posts: Post[]}>{
     this.showStatusBarMsg('Requesting posts......');
     return request({
       uri: `https://api.esa.io/v1/teams/${this.teamName}/posts`,
@@ -27,7 +27,7 @@ export default class EsaService {
         q: query
       },
       json: true
-    }).then(function(response) {
+    }).then(function(response : {posts: Post[]}) {
       return response;
     }).catch(function (err) {
       console.log(err);
